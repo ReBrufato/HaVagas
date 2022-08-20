@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nome_completo"
-            android:inputType="text" />
+            android:inputType="text"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,7 +53,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:hint="@string/telefone"/>
-
             <RadioGroup
                 android:id="@+id/radioTel"
                 android:layout_width="match_parent"
@@ -70,17 +69,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/residencial"/>
             </RadioGroup>
-
-            <RadioButton
-                android:id="@+id/radioFem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/feminino" />
         </LinearLayout>
 
         <!--TELEFONE CELULAR-->
         <LinearLayout
+            android:id="@+id/llTelCel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -114,13 +107,18 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/radioMasc"
+                android:id="@+id/sexoMasc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="@string/maculino"
                 android:layout_weight="1"/>
-
+            <RadioButton
+                android:id="@+id/sexoFem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/feminino" />
         </RadioGroup>
 
         <!--DATA NASCIMENTO-->
@@ -144,6 +142,11 @@
             android:text="@string/formacao"
             android:textSize="18sp"
             android:layout_marginTop="3sp"/>
+        <Spinner
+            android:id="@+id/inptFormacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/formacao" />
 
         <!--FUNDAMENTAL E MEDIO-->
             <LinearLayout
@@ -159,6 +162,7 @@
                     android:textSize="18sp"
                     android:layout_marginTop="3sp" />
                 <EditText
+                    android:id="@+id/anoFormFundMedio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="date"
@@ -180,6 +184,7 @@
                 android:textSize="18sp"
                 android:layout_marginTop="3sp" />
             <EditText
+                android:id="@+id/inptAnoConclusaoGradEsp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
@@ -187,6 +192,7 @@
 
             <!--Instituição-->
             <EditText
+                android:id="@+id/inptInstituicaoGradEspec"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -199,15 +205,9 @@
             android:id="@+id/llMestradoDoutorado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="visible"
             android:orientation="vertical">
             <!--Ano de conclusão-->
-            <Spinner
-                android:id="@+id/inptFormacao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/formacao" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -215,6 +215,7 @@
                 android:textSize="18sp"
                 android:layout_marginTop="3sp" />
             <EditText
+                android:id="@+id/anoConclusaoMestrDout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
@@ -222,6 +223,7 @@
 
             <!--Instituição-->
             <EditText
+                android:id="@+id/inptInstituicaoMestrDout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -230,6 +232,7 @@
 
             <!--Título de monografia-->
             <EditText
+                android:id="@+id/tituloMonografia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -238,6 +241,7 @@
 
             <!--Orientador-->
             <EditText
+                android:id="@+id/orientador"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -265,13 +269,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/limpar"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:layout_margin="2sp"/>
             <Button
                 android:id="@+id/btnsalvar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/salvar"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:layout_margin="2sp"/>
         </LinearLayout>
     </LinearLayout>
 

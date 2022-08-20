@@ -5,9 +5,9 @@
     <string name="check_emails">Receber e-mails com atualizações de oportunidades</string>
     <string name="comercial">Comercial</string>
     <string name="residencial">Residencial</string>
-    <string name="telefone">Telefone: (16)3375-7514</string>
+    <string name="telefone">Telefone: 16 3375-7514</string>
     <string name="addTelCell">Adicionar telefone celular</string>
-    <string name="telCel">Celular: +55 (16) 99768-2147</string>
+    <string name="telCel">Celular: 16 99768-2147</string>
     <string name="maculino">Maculino</string>
     <string name="feminino">Feminino</string>
     <string name="sexo">Sexo</string>
