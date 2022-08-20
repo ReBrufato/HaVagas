@@ -2,7 +2,7 @@ package com.example.havagas;
 
 public class Pessoa {
     private String nome;
-    private  String email;
+    private String email;
     private Boolean receberEmails = false;
     private String telefone;
     private String tipoTelefone;
@@ -59,7 +59,6 @@ public class Pessoa {
     }
 
     //mestrado e doutorado
-
     public Pessoa(String nome, String email, Boolean receberEmails, String telefone, String tipoTelefone, String celular, String sexo, String data, String formacao, String vagasInteresse,
                   String anoConclusao, String instituicao, String tituloMonografia, String orientador) {
         this.nome = nome;

@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         amb = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(amb.getRoot());
 
-        //seleção do checkbox celular
+        //visibilidade do campo celular
         amb.checkTelCel.setOnClickListener(view -> {
             if (amb.checkTelCel.isChecked()){
                 amb.llTelCel.setVisibility(View.VISIBLE);
@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
             amb.inptVagasInteresse.setText("");
             amb.inptTelCel.setVisibility(View.GONE);
 
+            //visibilidade do campo celular
             amb.checkTelCel.setOnClickListener(view1 -> {
                 if(amb.checkTelCel.isChecked()){
                     amb.inptTelCel.setVisibility(View.VISIBLE);
