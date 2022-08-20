@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private String sexo;
     private String data;
     private String formacao;
+    private String vagasInteresse;
     private String anoFormatura;
     private String anoConclusao;
     private String instituicao;
@@ -81,29 +82,59 @@ public class MainActivity extends AppCompatActivity {
             tipoTelefone = amb.radioTelComercial.isChecked()? "Comercial" : "Residencial";
             celular = amb.inptTelCel.getText().toString();
             sexo = amb.sexoMasc.isChecked()? "Masculino" : "Feminino";
-            data = amb.inptData.getText().toString();
+            data = amb.inptDataNasc.getText().toString();
+            vagasInteresse = amb.inptVagasInteresse.getText().toString();
 
             if(formacao.equals("Fundamental") || formacao.equals("Medio")){
                 anoFormatura = amb.anoFormFundMedio.getText().toString();
 
-                pessoa = new Pessoa(nome, email, receberEmails, telefone, tipoTelefone, celular, sexo, data, formacao, anoFormatura);
+                pessoa = new Pessoa(nome, email, receberEmails, telefone, tipoTelefone, celular, sexo, data, formacao, vagasInteresse, anoFormatura);
                 Toast.makeText(MainActivity.this, pessoa.toStringFundMedio(), Toast.LENGTH_SHORT).show();
 
             }else if(formacao.equals("Graduacao") || formacao.equals("Especializacao")){
                 anoConclusao = amb.inptAnoConclusaoGradEsp.getText().toString();
                 instituicao = amb.inptInstituicaoGradEspec.getText().toString();
 
-                pessoa = new Pessoa(nome, email, receberEmails, telefone, tipoTelefone, celular, sexo, data, formacao, anoConclusao, instituicao);
+                pessoa = new Pessoa(nome, email, receberEmails, telefone, tipoTelefone, celular, sexo, data, formacao, vagasInteresse, anoConclusao, instituicao);
                 Toast.makeText(this, pessoa.toStringGradEspec(), Toast.LENGTH_SHORT).show();
             }else{
                 tituloMonografia = amb.tituloMonografia.getText().toString();
                 orientador = amb.orientador.getText().toString();
 
-                pessoa = new Pessoa(nome, email, receberEmails, telefone, tipoTelefone, celular, sexo, data, formacao, anoConclusao, instituicao, tituloMonografia, orientador);
+                pessoa = new Pessoa(nome, email, receberEmails, telefone, tipoTelefone, celular, sexo, data, formacao, vagasInteresse, anoConclusao, instituicao, tituloMonografia, orientador);
                 Toast.makeText(this, pessoa.toStringMestrDoutor(), Toast.LENGTH_SHORT).show();
             }
         });
 
+        //Limpar
+        amb.btnlimpar.setOnClickListener(view -> {
+            amb.inptNome.setText("");
+            amb.inptEmail.setText("");
+            amb.checkEmail.setChecked(false);
+            amb.inptTel.setText("");
+            amb.radioTelComercial.setChecked(true);
+            amb.inptTelCel.setText("");
+            amb.sexoMasc.setChecked(true);
+            amb.inptDataNasc.setText("");
+            amb.anoFormFundMedio.setText("");
+            amb.inptAnoConclusaoGradEsp.setText("");
+            amb.anoConclusaoMestrDout.setText("");
+            amb.inptInstituicaoMestrDout.setText("");
+            amb.inptInstituicaoGradEspec.setText("");
+            amb.tituloMonografia.setText("");
+            amb.orientador.setText("");
+            amb.checkTelCel.setChecked(false);
+            amb.inptVagasInteresse.setText("");
+            amb.inptTelCel.setVisibility(View.GONE);
+
+            amb.checkTelCel.setOnClickListener(view1 -> {
+                if(amb.checkTelCel.isChecked()){
+                    amb.inptTelCel.setVisibility(View.VISIBLE);
+                }else{
+                    amb.inptTelCel.setVisibility(View.GONE);
+                }
+            });
+        });
 
     }
 }

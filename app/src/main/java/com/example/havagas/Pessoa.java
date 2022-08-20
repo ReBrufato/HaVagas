@@ -10,6 +10,7 @@ public class Pessoa {
     private String sexo;
     private String data;
     private String formacao;
+    private String vagasInteresse;
 
     //fundamental e médio
     private String anoFormatura;
@@ -25,7 +26,7 @@ public class Pessoa {
     private String orientador;
 
     //fundamental e médio
-    public Pessoa(String nome, String email, Boolean receberEmails, String telefone, String tipoTelefone, String celular, String sexo, String data, String formacao,
+    public Pessoa(String nome, String email, Boolean receberEmails, String telefone, String tipoTelefone, String celular, String sexo, String data, String formacao, String vagasInteresse,
                   String anoForatura) {
         this.nome = nome;
         this.email = email;
@@ -36,11 +37,12 @@ public class Pessoa {
         this.sexo = sexo;
         this.data = data;
         this.formacao = formacao;
+        this.vagasInteresse = vagasInteresse;
         this.anoFormatura = anoForatura;
     }
 
     //graduação e especialização
-    public Pessoa(String nome, String email, Boolean receberEmails, String telefone, String tipoTelefone, String celular, String sexo, String data, String formacao,
+    public Pessoa(String nome, String email, Boolean receberEmails, String telefone, String tipoTelefone, String celular, String sexo, String data, String formacao, String vagasInteresse,
                   String anoConclusao, String instituicao) {
         this.nome = nome;
         this.email = email;
@@ -51,13 +53,14 @@ public class Pessoa {
         this.sexo = sexo;
         this.data = data;
         this.formacao = formacao;
+        this.vagasInteresse = vagasInteresse;
         this.anoConclusao = anoConclusao;
         this.instituicao = instituicao;
     }
 
     //mestrado e doutorado
 
-    public Pessoa(String nome, String email, Boolean receberEmails, String telefone, String tipoTelefone, String celular, String sexo, String data, String formacao,
+    public Pessoa(String nome, String email, Boolean receberEmails, String telefone, String tipoTelefone, String celular, String sexo, String data, String formacao, String vagasInteresse,
                   String anoConclusao, String instituicao, String tituloMonografia, String orientador) {
         this.nome = nome;
         this.email = email;
@@ -68,6 +71,7 @@ public class Pessoa {
         this.sexo = sexo;
         this.data = data;
         this.formacao = formacao;
+        this.vagasInteresse = vagasInteresse;
         this.anoConclusao = anoConclusao;
         this.instituicao = instituicao;
         this.tituloMonografia = tituloMonografia;
@@ -197,6 +201,7 @@ public class Pessoa {
                 ", sexo='" + sexo + '\'' +
                 ", data='" + data + '\'' +
                 ", formacao='" + formacao + '\'' +
+                ", vagasInteresse='" + vagasInteresse + '\'' +
                 ", anoForatura='" + anoFormatura + '\'' +
                 '}';
     }
@@ -212,6 +217,7 @@ public class Pessoa {
                 ", sexo='" + sexo + '\'' +
                 ", data='" + data + '\'' +
                 ", formacao='" + formacao + '\'' +
+                ", vagasInteresse='" + vagasInteresse + '\'' +
                 ", anoConclusao='" + anoConclusao + '\'' +
                 ", instituicao='" + instituicao + '\'' +
                 '}';
@@ -228,6 +234,7 @@ public class Pessoa {
                 ", sexo='" + sexo + '\'' +
                 ", data='" + data + '\'' +
                 ", formacao='" + formacao + '\'' +
+                ", vagasInteresse='" + vagasInteresse + '\'' +
                 ", anoConclusao='" + anoConclusao + '\'' +
                 ", instituicao='" + instituicao + '\'' +
                 ", tituloMonografia='" + tituloMonografia + '\'' +

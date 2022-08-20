@@ -62,7 +62,8 @@
                     android:id="@+id/radioTelComercial"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/comercial"/>
+                    android:text="@string/comercial"
+                    android:checked="true"/>
                 <RadioButton
                     android:id="@+id/radioTelResidencial"
                     android:layout_width="wrap_content"
@@ -129,7 +130,7 @@
             android:textSize="18sp"
             android:layout_marginTop="3sp"/>
         <EditText
-            android:id="@+id/inptData"
+            android:id="@+id/inptDataNasc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"
@@ -211,15 +212,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3sp"
                 android:text="@string/txtanoConclusao"
-                android:textSize="18sp"
-                android:layout_marginTop="3sp" />
+                android:textSize="18sp" />
+
             <EditText
                 android:id="@+id/anoConclusaoMestrDout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
-                android:hint="@string/ano_de_formatura" />
+                android:hint="@string/ano_de_formatura"/>
 
             <!--Instituição-->
             <EditText
@@ -257,7 +259,7 @@
             android:inputType="text"
             android:hint="@string/vagas_de_interesse"
             android:layout_marginTop="3sp"/>
-        
+
         <!--BOTÕES-->
         <LinearLayout
             android:layout_width="match_parent"
