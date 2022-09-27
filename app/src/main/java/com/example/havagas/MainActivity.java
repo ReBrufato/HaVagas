@@ -1,10 +1,14 @@
 package com.example.havagas;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding amb;
+    private final String TAG_CICLO_PDM = "TAG_CLICLO_PDM";
 
     private String nome;
     private  String email;
@@ -30,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private String tituloMonografia;
     private String orientador;
     private Pessoa pessoa;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,4 +144,68 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    @SuppressLint("LongLogTag")
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString("nome", amb.inptNome.getText().toString());
+        outState.putString("email", amb.inptEmail.getText().toString());
+        outState.putString("telefone", amb.inptTel.getText().toString());
+        //outState.putString("tipoTelefone", tipoTelefone);
+        outState.putString("celular", amb.inptTelCel.getText().toString());
+        //outState.putString("sexo", sexo);
+        outState.putString("data", amb.inptDataNasc.getText().toString());
+        //outState.putString("formacao", formacao);
+        outState.putString("vagasInteresse", amb.inptVagasInteresse.getText().toString());
+        outState.putString("anoFormatura", amb.anoFormFundMedio.getText().toString());
+        //outState.putString("anoConclusao", anoConclusao);
+        //outState.putString("instituicao", instituicao);
+        outState.putString("tituloMonografia", amb.tituloMonografia.getText().toString());
+        outState.putString("orientador", amb.orientador.getText().toString());
+        //outState.putBoolean("receberEmails", receberEmails);
+
+        Log.v("Recuperação no onSaveInstanceState", "Dados salvos no Bundle outState");
+    }
+
+    //etapas do ciclo para visualização no console
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.v(TAG_CICLO_PDM, "onStart: iniciando cliclo visivel");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.v(TAG_CICLO_PDM, "onResume: iniciando cliclo foreground");
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        Log.v(TAG_CICLO_PDM, "onPause: finalizando ciclo foreground");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.v(TAG_CICLO_PDM, "onStop: finalizando ciclo visivel");
+    }
+
+    @Override
+    protected void onRestart(){
+        super.onRestart();
+        Log.v(TAG_CICLO_PDM, "onRestar: iniciando chamada para ciclo visivel");
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        Log.v(TAG_CICLO_PDM, "onDestroy: finalizando ciclo/aplicacao");
+    }
+
+
+
 }
