@@ -8,12 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.havagas.databinding.ActivityMainBinding;
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding amb;
@@ -36,11 +33,31 @@ public class MainActivity extends AppCompatActivity {
     private String orientador;
     private Pessoa pessoa;
 
+    private static final String NOME = "nome";
+    private static final String EMAIL = "email";
+    private static final String TELEFONE = "telefone";
+    private static final String TEL_RES = "telResidencial";
+    private static final String TEL_COM = "telComercial";
+    private static final String CELULAR = "celular";
+    private static final String SEXO_MASC = "sexoMasc";
+    private static final String SEXO_FEM = "sexoFem";
+    private static final String DATA = "data";
+    private static final String VAGAS_INTERESSE = "vagasInteresse";
+    private static final String ANO_FORM = "anoFormatura";
+    private static final String CONCL_MESTR_DOUT = "anoConclusaoMestrDout";
+    private static final String CONCL_GRAD_ESPC = "anoConclusaoGradEspc";
+    private static final String CONCL_FUND_MED = "anoConclusaoFundMed";
+    private static final String INST_GARD_ESPEC = "instituicaoGradEsp";
+    private static final String INST_MESTR_DOUT = "instituicaoMestrDout";
+    private static final String MONOGRAFIA = "tituloMonografia";
+    private static final String ORIENTADOR = "orientador";
+    private static final String RECEBER_EMAILS = "receberEmails";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        amb = ActivityMainBinding.inflate(getLayoutInflater());
+        amb = amb.inflate(getLayoutInflater());
         setContentView(amb.getRoot());
 
         //visibilidade do campo celular
@@ -150,23 +167,54 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        outState.putString("nome", amb.inptNome.getText().toString());
-        outState.putString("email", amb.inptEmail.getText().toString());
-        outState.putString("telefone", amb.inptTel.getText().toString());
-        //outState.putString("tipoTelefone", tipoTelefone);
-        outState.putString("celular", amb.inptTelCel.getText().toString());
-        //outState.putString("sexo", sexo);
-        outState.putString("data", amb.inptDataNasc.getText().toString());
-        //outState.putString("formacao", formacao);
-        outState.putString("vagasInteresse", amb.inptVagasInteresse.getText().toString());
-        outState.putString("anoFormatura", amb.anoFormFundMedio.getText().toString());
-        //outState.putString("anoConclusao", anoConclusao);
-        //outState.putString("instituicao", instituicao);
-        outState.putString("tituloMonografia", amb.tituloMonografia.getText().toString());
-        outState.putString("orientador", amb.orientador.getText().toString());
-        //outState.putBoolean("receberEmails", receberEmails);
+        outState.putString(NOME, amb.inptNome.getText().toString());
+        outState.putString(EMAIL, amb.inptEmail.getText().toString());
+        outState.putString(TELEFONE, amb.inptTel.getText().toString());
+        outState.putBoolean(TEL_RES, amb.radioTelResidencial.isChecked());
+        outState.putBoolean(TEL_COM, amb.radioTelComercial.isChecked());
+        outState.putString(CELULAR, amb.inptTelCel.getText().toString());
+        outState.putBoolean(SEXO_MASC, amb.sexoMasc.isChecked());
+        outState.putBoolean(SEXO_FEM, amb.sexoFem.isChecked());
+        outState.putString(DATA, amb.inptDataNasc.getText().toString());
+        outState.putString(VAGAS_INTERESSE, amb.inptVagasInteresse.getText().toString());
+        outState.putString(ANO_FORM, amb.anoFormFundMedio.getText().toString());
+        outState.putString(CONCL_MESTR_DOUT, amb.anoConclusaoMestrDout.getText().toString());
+        outState.putString(CONCL_GRAD_ESPC, amb.inptAnoConclusaoGradEsp.getText().toString());
+        outState.putString(CONCL_FUND_MED, amb.anoFormFundMedio.getText().toString());
+        outState.putString(INST_GARD_ESPEC, amb.inptInstituicaoGradEspec.getText().toString());
+        outState.putString(INST_MESTR_DOUT, amb.inptInstituicaoMestrDout.getText().toString());
+        outState.putString(MONOGRAFIA, amb.tituloMonografia.getText().toString());
+        outState.putString(ORIENTADOR, amb.orientador.getText().toString());
+        outState.putBoolean(RECEBER_EMAILS, amb.checkEmail.isChecked());
 
         Log.v("Recuperação no onSaveInstanceState", "Dados salvos no Bundle outState");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        amb.inptNome.setText(savedInstanceState.getString(NOME));
+        amb.inptEmail.setText(savedInstanceState.getString(EMAIL));
+        amb.inptTel.setText(savedInstanceState.getString(TELEFONE));
+        amb.radioTelResidencial.setChecked(savedInstanceState.getBoolean((TEL_RES)));
+        amb.radioTelComercial.setChecked(savedInstanceState.getBoolean((TEL_COM)));
+        amb.inptTelCel.setText(savedInstanceState.getString(CELULAR));
+        amb.sexoMasc.setChecked(savedInstanceState.getBoolean(SEXO_MASC));
+        amb.sexoFem.setChecked(savedInstanceState.getBoolean(SEXO_FEM));
+        amb.inptDataNasc.setText(savedInstanceState.getString(DATA));
+        amb.inptVagasInteresse.setText(savedInstanceState.getString(VAGAS_INTERESSE));
+        amb.anoFormFundMedio.setText(savedInstanceState.getString(ANO_FORM));
+        amb.anoConclusaoMestrDout.setText(savedInstanceState.getString(CONCL_MESTR_DOUT));
+        amb.inptAnoConclusaoGradEsp.setText(savedInstanceState.getString(CONCL_GRAD_ESPC));
+        amb.anoFormFundMedio.setText(savedInstanceState.getString(CONCL_FUND_MED));
+        amb.inptInstituicaoGradEspec.setText(savedInstanceState.getString(INST_GARD_ESPEC));
+        amb.inptInstituicaoMestrDout.setText(savedInstanceState.getString(INST_MESTR_DOUT));
+        amb.tituloMonografia.setText(savedInstanceState.getString(MONOGRAFIA));
+        amb.orientador.setText(savedInstanceState.getString(ORIENTADOR));
+        amb.checkEmail.setChecked(savedInstanceState.getBoolean(RECEBER_EMAILS));
+
+        Log.v(TAG_CICLO_PDM, "onRestoreInstanceState: restaurando dados do ciclo PDM");
     }
 
     //etapas do ciclo para visualização no console

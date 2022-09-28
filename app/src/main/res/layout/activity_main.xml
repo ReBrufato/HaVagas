@@ -107,13 +107,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/sexoMasc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:checked="true"
-                android:text="@string/maculino"
-                android:layout_weight="1"/>
+                android:text="@string/maculino" />
+
             <RadioButton
                 android:id="@+id/sexoFem"
                 android:layout_width="match_parent"
@@ -143,14 +145,15 @@
             android:text="@string/formacao"
             android:textSize="18sp"
             android:layout_marginTop="3sp"/>
+
+        <!--FUNDAMENTAL E MEDIO-->
         <Spinner
             android:id="@+id/inptFormacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/formacao" />
 
-        <!--FUNDAMENTAL E MEDIO-->
-            <LinearLayout
+        <LinearLayout
                 android:id="@+id/llFundamentalMedio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
