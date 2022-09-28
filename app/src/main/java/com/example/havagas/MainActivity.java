@@ -15,6 +15,8 @@ import com.example.havagas.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding amb;
     private final String TAG_CICLO_PDM = "TAG_CLICLO_PDM";
+    private final String TAG_SAVEDINSTANCE = "TAG_SALVANDO_INSTANCIA"
+    private final String TAG_ONRESTORE = "TAG_RECUPERANDO_BUNDLE"
 
     private String nome;
     private  String email;
@@ -187,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
         outState.putString(ORIENTADOR, amb.orientador.getText().toString());
         outState.putBoolean(RECEBER_EMAILS, amb.checkEmail.isChecked());
 
-        Log.v("Recuperação no onSaveInstanceState", "Dados salvos no Bundle outState");
+        Log.v(TAG_CICLO_PDM, "Dados salvos no Bundle outState");
     }
 
     @Override
@@ -214,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
         amb.orientador.setText(savedInstanceState.getString(ORIENTADOR));
         amb.checkEmail.setChecked(savedInstanceState.getBoolean(RECEBER_EMAILS));
 
-        Log.v(TAG_CICLO_PDM, "onRestoreInstanceState: restaurando dados do ciclo PDM");
+        Log.v(TAG_ONRESTORE, "Restaurando dados do ciclo PDM");
     }
 
     //etapas do ciclo para visualização no console
